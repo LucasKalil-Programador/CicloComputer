@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CicloComputer</string>
+
+    <string name="speed_label">Speed</string>
+    <string name="avg_speed_label">AVG</string>
+    <string name="max_speed_label">Max</string>
+    <string name="distance_label">Distance</string>
+    <string name="time_label">Elapsed time</string>
+
+    <string name="speed_value">0.0 km/h</string>
+    <string name="avg_speed_value">0.0 km/h</string>
+    <string name="max_speed_value">0.0 km/h</string>
+    <string name="distance_value">0 m</string>
+    <string name="time_value">00:00:00.00</string>
+
+    <string name="start_button">Start</string>
+    <string name="pause_button">Pause</string>
+    <string name="lap_button">Lap</string>
+    <string name="save_button">Save</string>
+</resources>
