@@ -143,13 +143,13 @@ public class GPSTracker {
             }
 
 
-            String debug = "Debug\r\nAccuracy: " + location.getAccuracy() + "\r\n";
-            debug += "speed Accuracy: " + location.getSpeedAccuracyMetersPerSecond() + "\r\n";
-            debug += "distance last -> now: " + location.distanceTo(lastLocation) + "\r\n";
-            debug += "speed: " + speed + "\r\n";
-            debug += "total distance: " + distance + "\r\n";
-
-            Toast.makeText(context, debug, Toast.LENGTH_SHORT).show();
+//            String debug = "Debug\r\nAccuracy: " + location.getAccuracy() + "\r\n";
+//            debug += "speed Accuracy: " + location.getSpeedAccuracyMetersPerSecond() + "\r\n";
+//            debug += "distance last -> now: " + location.distanceTo(lastLocation) + "\r\n";
+//            debug += "speed: " + speed + "\r\n";
+//            debug += "total distance: " + distance + "\r\n";
+//
+//            Toast.makeText(context, debug, Toast.LENGTH_SHORT).show();
             lastLocation = location;
         }
     }

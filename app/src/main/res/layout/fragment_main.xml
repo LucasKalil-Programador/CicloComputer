@@ -9,10 +9,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Info_meter"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="198dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,11 +142,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/speed_meter"
-        android:layout_width="383dp"
+        android:layout_width="0dp"
         android:layout_height="83dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -188,11 +188,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/max_speed_meter"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/Info_meter"
         app:layout_constraintEnd_toStartOf="@+id/time_meter"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -233,11 +235,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/time_meter"
-        android:layout_width="190dp"
-        android:layout_height="83dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/Info_meter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/max_speed_meter"
         app:layout_constraintTop_toBottomOf="@+id/ditance_meter">
@@ -278,11 +282,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/avg_speed_meter"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/max_speed_meter"
         app:layout_constraintEnd_toStartOf="@+id/ditance_meter"
         app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
@@ -324,10 +330,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ditance_meter"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@+id/time_meter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/avg_speed_meter"
         app:layout_constraintTop_toBottomOf="@+id/speed_meter">
@@ -404,17 +412,17 @@
 
     <Button
         android:id="@+id/restart_button"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="69dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@color/black"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/restart_button"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/start_pause_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Info_meter"
         app:layout_constraintVertical_bias="0.884" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
