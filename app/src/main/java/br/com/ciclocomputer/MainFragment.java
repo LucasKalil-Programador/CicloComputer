@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class MainFragment extends Fragment {
 
-    private Button startAndPauseButton, lapButton, saveButton;
+    private Button startAndPauseButton, lapButton, saveButton, restartButton;
     private GPSTracker tracker;
     private boolean paused = true;
 
@@ -37,7 +37,13 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addClickListeners(view);
+
+
+
         startMeterUpdater();
+
+
+
     }
 
     private void addClickListeners(View view) {
@@ -49,6 +55,9 @@ public class MainFragment extends Fragment {
 
         saveButton = (Button) view.findViewById(R.id.save_buttton);
         saveButton.setOnClickListener(new OnSaveClickButtonListener());
+
+        restartButton = (Button)  view.findViewById(R.id.restart_button);
+        restartButton.setOnClickListener(new OnRestartClickButtonListener());
     }
 
     private void startMeterUpdater() {
@@ -60,9 +69,11 @@ public class MainFragment extends Fragment {
             TextView maxSpeedText = getView().findViewById(R.id.max_speed_meter_value);
             TextView avgSpeedText = getView().findViewById(R.id.avg_speed_meter_value);
 
+
+
             @Override
             public void run() {
-                    if(tracker != null) {
+                    if(tracker != null && paused == false) {
                         GPSTracker.GPSTrackerInfo info = tracker.getInfo();
                         timeText.setText(info.elapsedTime);
                         distanceText.setText(info.distance);
@@ -118,10 +129,55 @@ public class MainFragment extends Fragment {
         }
     }
 
-    private void OnLapClick() {
 
+    private void OnLapClick() {
+        if(tracker != null){
+
+            TextView getAvgSpeedText2 = getView().findViewById(R.id.avg_speed_meter_value2);
+
+            TextView getDistanceText2 = getView().findViewById(R.id.ditance_meter_value2);
+
+            TextView getTimeText2  = getView().findViewById(R.id.time_meter_value2);
+
+            GPSTracker.GPSTrackerInfo info = tracker.getInfo();
+            getAvgSpeedText2.setText(info.avgSpeed);
+            getTimeText2.setText(info.elapsedTime);
+            getDistanceText2.setText(info.distance);
+        }
     }
 
+    private class OnRestartClickButtonListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) { OnRestartClick();}
+    }
+
+    private void OnRestartClick() {
+
+        if(tracker!= null && paused == true){
+
+            TextView timeText = getView().findViewById(R.id.time_meter_value);
+            TextView distanceText = getView().findViewById(R.id.ditance_meter_value);
+            TextView speedText = getView().findViewById(R.id.speed_meter_value);
+            TextView maxSpeedText = getView().findViewById(R.id.max_speed_meter_value);
+            TextView avgSpeedText = getView().findViewById(R.id.avg_speed_meter_value);
+
+            TextView getAvgSpeedText2 = getView().findViewById(R.id.avg_speed_meter_value2);
+            TextView getDistanceText2 = getView().findViewById(R.id.ditance_meter_value2);
+            TextView getTimeText2  = getView().findViewById(R.id.time_meter_value2);
+
+            timeText.setText("00:00:00.00");
+            distanceText.setText("0 m");
+            speedText.setText("0.0 Km/h");
+            maxSpeedText.setText("0.0 Km/h");
+            avgSpeedText.setText("0.0 Km/h");
+
+            getAvgSpeedText2.setText("00:00:00.00");
+            getTimeText2.setText("0 m");
+            getDistanceText2.setText("0.0 Km/h");
+
+        }
+
+    }
 
     // Save Click
 
