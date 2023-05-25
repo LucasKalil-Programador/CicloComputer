@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import br.com.ciclocomputer.tracker.GPSInfo;
+import br.com.ciclocomputer.tracker.GPSTracker;
+
 public class MainFragment extends Fragment {
 
     private Button startAndPauseButton, lapButton, saveButton, restartButton;
@@ -72,7 +75,7 @@ public class MainFragment extends Fragment {
             @Override
             public void run() {
                     if(tracker != null && paused == false) {
-                        GPSTracker.GPSTrackerInfo info = tracker.getInfo();
+                        GPSInfo info = tracker.getInfo();
                         timeText.setText(info.elapsedTime);
                         distanceText.setText(info.distance);
                         speedText.setText(info.speed);
@@ -137,7 +140,7 @@ public class MainFragment extends Fragment {
 
             TextView getTimeText2  = getView().findViewById(R.id.time_meter_value2);
 
-            GPSTracker.GPSTrackerInfo info = tracker.getInfo();
+            GPSInfo info = tracker.getInfo();
             getAvgSpeedText2.setText(info.avgSpeed);
             getTimeText2.setText(info.elapsedTime);
             getDistanceText2.setText(info.distance);
