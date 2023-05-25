@@ -125,7 +125,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/lap_info_label"
+            android:id="@+id/saves_info_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lap_info"

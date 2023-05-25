@@ -1,7 +1,5 @@
 package br.com.ciclocomputer;
 
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -188,7 +186,19 @@ public class MainFragment extends Fragment {
         }
     }
 
-    private void OnSaveClick() {
+    public void OnSaveClick() {
+
+        TextView getAvgSpeedText2 = getView().findViewById(R.id.avg_speed_meter_value2);
+        TextView getDistanceText2 = getView().findViewById(R.id.ditance_meter_value2);
+        TextView getTimeText2  = getView().findViewById(R.id.time_meter_value2);
+
+         String avgSpeed = getAvgSpeedText2.getText().toString();
+         String distance = getDistanceText2.getText().toString();
+         String time = getTimeText2.getText().toString();
+
+         SaveDataModel lapToSave = new SaveDataModel(avgSpeed, distance, time);
+
+         SaveDataActivity.addDataModel(lapToSave);
 
     }
 }
