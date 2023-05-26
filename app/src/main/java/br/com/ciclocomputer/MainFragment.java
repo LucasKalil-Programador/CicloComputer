@@ -22,6 +22,7 @@ public class MainFragment extends Fragment {
     private GPSTracker tracker;
     private boolean paused = true;
 
+
     public MainFragment() { /* Required empty public constructor */ }
 
     public static MainFragment newInstance() {

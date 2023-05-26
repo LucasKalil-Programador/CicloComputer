@@ -6,6 +6,7 @@ import static android.location.LocationManager.GPS_PROVIDER;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.location.Location;
 import android.location.LocationManager;
 
 import br.com.ciclocomputer.MainActivity;
@@ -23,6 +24,10 @@ public class GPSTracker {
         if(MainActivity.checkLocationPermissions(this.context)) {
             locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
         }
+    }
+
+    public GPSTracker() {
+
     }
 
     @SuppressLint("MissingPermission")
@@ -48,5 +53,9 @@ public class GPSTracker {
 
     public GPSInfo getInfo() {
         return locationListener.getInfo();
+    }
+
+    public Location getLocation(){
+        return locationListener.lastLocation;
     }
 }
