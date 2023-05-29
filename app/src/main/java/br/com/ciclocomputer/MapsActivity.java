@@ -20,7 +20,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
 
-    private MainActivity main = new MainActivity();
 
 
     @Override
@@ -33,8 +32,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+
+        if (MainActivity.checkLocationPermissions(this)) {
+            // As permissões de localização já foram concedidas, inicialize o mapa
+            mapFragment.getMapAsync(this);
+        } else {
+            // As permissões de localização não foram concedidas, solicite à MainActivity
+
+            MainActivity mainActivity;
+            mainActivity = new MainActivity();
+            mainActivity.requestLocationPermission(this, this);
+
+        }
+
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -45,11 +57,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Location location = gpsTracker.getLocation();
 
-        if (location != null) {
 
-            LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            LatLng currentLocation = new LatLng(gpsTracker.getLocation().getLatitude(), gpsTracker.getLocation().getLongitude());
             mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current Location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
-        }
+
     }
 }
