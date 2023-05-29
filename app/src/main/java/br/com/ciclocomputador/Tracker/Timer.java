@@ -1,36 +1,22 @@
-package br.com.ciclocomputador;
+package br.com.ciclocomputador.Tracker;
 
-import java.util.concurrent.TimeUnit;
+public class Timer {
+    private long startTime;      // Stores the start time in nanoseconds
+    private long elapsedTime;    // Stores the elapsed time in nanoseconds
+    private boolean isRunning;   // Indicates whether the timer is running or paused
 
-public class Test {
-
-    public static void main(String[] args) throws InterruptedException {
-        Timer timer = new Timer();
-        timer.start();
-        while(timer.getElapsedTime() <= TimeUnit.MINUTES.toNanos(1)){
-            System.out.print("\r" + timer);
-        }
-        timer.pause();
-        Thread.sleep(20000);
-        timer.start();
-        while(timer.getElapsedTime() <= TimeUnit.MINUTES.toMillis(2)){
-            System.out.print("\r" + timer);
-        }
-    }
-
-}
-
-class Timer {
-    private long startTime;
-    private long elapsedTime;
-    private boolean isRunning;
-
+    /**
+     * Constructs a Timer object with initial values.
+     */
     public Timer() {
         startTime = 0;
         elapsedTime = 0;
         isRunning = false;
     }
 
+    /**
+     * Starts the timer. If the timer is already running, this method has no effect.
+     */
     public void start() {
         if (!isRunning) {
             startTime = System.nanoTime();
@@ -38,6 +24,9 @@ class Timer {
         }
     }
 
+    /**
+     * Pauses the timer. If the timer is already paused or not running, this method has no effect.
+     */
     public void pause() {
         if (isRunning) {
             elapsedTime += System.nanoTime() - startTime;
@@ -45,6 +34,9 @@ class Timer {
         }
     }
 
+    /**
+     * Stops the timer and resets all values. If the timer is already stopped, this method has no effect.
+     */
     public void stop() {
         if (isRunning) {
             elapsedTime += System.nanoTime() - startTime;
@@ -54,11 +46,19 @@ class Timer {
         elapsedTime = 0;
     }
 
+    /**
+     * Resets the timer to start a new measurement. The elapsed time is set to 0.
+     */
     public void reset() {
         startTime = System.nanoTime();
         elapsedTime = 0;
     }
 
+    /**
+     * Returns the elapsed time in nanoseconds.
+     *
+     * @return The elapsed time in nanoseconds.
+     */
     public long getElapsedTime() {
         if (isRunning) {
             return elapsedTime + (System.nanoTime() - startTime);
@@ -67,6 +67,11 @@ class Timer {
         }
     }
 
+    /**
+     * Returns a string representation of the elapsed time in the format "HH:MM:SS.SSS".
+     *
+     * @return The string representation of the elapsed time.
+     */
     @Override
     public String toString() {
         long totalNanoseconds = getElapsedTime();
@@ -77,6 +82,7 @@ class Timer {
         long minutes = totalMinutes % 60;
         long hours = totalMinutes / 60;
 
-        return String.format("%02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds / 10);
+        return String.format("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds);
     }
 }
+
