@@ -1,4 +1,4 @@
-package br.com.ciclocomputer;
+package br.com.ciclocomputador;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("br.com.ciclocomputer", appContext.getPackageName());
+        assertEquals("br.com.ciclocomputador", appContext.getPackageName());
     }
 }

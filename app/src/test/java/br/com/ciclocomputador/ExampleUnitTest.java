@@ -1,4 +1,4 @@
-package br.com.ciclocomputer;
+package br.com.ciclocomputador;
 
 import org.junit.Test;
 
