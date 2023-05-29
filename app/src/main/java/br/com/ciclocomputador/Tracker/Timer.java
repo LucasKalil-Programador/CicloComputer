@@ -1,5 +1,7 @@
 package br.com.ciclocomputador.Tracker;
 
+import br.com.ciclocomputador.Tracker.info.Time;
+
 public class Timer {
     private long startTime;      // Stores the start time in nanoseconds
     private long elapsedTime;    // Stores the elapsed time in nanoseconds
@@ -67,6 +69,11 @@ public class Timer {
         }
     }
 
+    public Time getTime() {
+        return new Time(getElapsedTime());
+    }
+
+
     /**
      * Returns a string representation of the elapsed time in the format "HH:MM:SS.SSS".
      *
@@ -74,15 +81,7 @@ public class Timer {
      */
     @Override
     public String toString() {
-        long totalNanoseconds = getElapsedTime();
-        long milliseconds = (totalNanoseconds / 1_000_000) % 1000;
-        long totalSeconds = totalNanoseconds / 1_000_000_000;
-        long seconds = totalSeconds % 60;
-        long totalMinutes = totalSeconds / 60;
-        long minutes = totalMinutes % 60;
-        long hours = totalMinutes / 60;
-
-        return String.format("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds);
+        return getTime().toString();
     }
 }
 
