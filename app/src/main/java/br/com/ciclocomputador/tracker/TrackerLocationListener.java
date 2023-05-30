@@ -26,7 +26,7 @@ public class TrackerLocationListener implements LocationListener {
      */
     @Override
     public void onLocationChanged(@NonNull Location currentLocation) {
-        if (lastLocation != null) {
+        if (lastLocation != null && currentLocation != null) {
             if(currentLocation.hasSpeed()) {
                 speed = currentLocation.getSpeed();
             } else {

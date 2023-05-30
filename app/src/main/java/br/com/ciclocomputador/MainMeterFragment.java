@@ -1,24 +1,24 @@
 package br.com.ciclocomputador;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
+import br.com.ciclocomputador.tracker.Timer;
 import br.com.ciclocomputador.tracker.Tracker;
+import br.com.ciclocomputador.tracker.TrackerLocationListener;
 import br.com.ciclocomputador.tracker.info.TrackerInfo;
 
 
@@ -29,6 +29,9 @@ public class MainMeterFragment extends Fragment {
     private Tracker tracker;
     private static final int updateDelay = 10;
     private boolean paused = true;
+
+    private Timer lapTimer;
+    private TrackerLocationListener lapListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +57,7 @@ public class MainMeterFragment extends Fragment {
         avgSpeedView.setText(info.getAvgSpeed().toString());
         maxSpeedView.setText(info.getMaxSpeed().toString());
         distanceView.setText(info.getDistance().toString());
+        if(lapListener != null) lapListener.onLocationChanged(info.getLastLocation());
         updater.postDelayed(this::updateScreen, updateDelay);
     }
 
@@ -69,7 +73,12 @@ public class MainMeterFragment extends Fragment {
     }
 
     private void onStopButtonClick(View v) {
-
+        tracker = new Tracker(getContext());
+        lapListener = null;
+        lapTimer = null;
+        paused = true;
+        ImageButton button = (ImageButton)  getView().findViewById(R.id.startAndPauseButton);
+        button.setImageResource(paused? R.drawable.play: R.drawable.pause);
     }
 
     private void onStartAndPauseButtonClick(View v) {
@@ -84,14 +93,36 @@ public class MainMeterFragment extends Fragment {
     }
 
     private void onStartButtonClick(View v) {
+        if(lapListener == null || lapTimer == null) resetLap();
+        lapTimer.start();
         tracker.start();
     }
 
     private void onPauseButtonClick(View v) {
         tracker.pause();
+        lapTimer.pause();
     }
 
     private void onLapButtonClick(View v) {
+        if(lapListener != null) {
+            LinearLayout linearLayout = getView().findViewById(R.id.lapReports);
+            LapReport lapReport = new LapReport(lapListener.getTrackerInfo(), linearLayout.getChildCount() + 1);
 
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager
+                    .beginTransaction()
+                    .add(linearLayout.getId(), lapReport)
+                    .commit();
+
+            ScrollView scrollView = getView().findViewById(R.id.lapReportsScroll);
+            scrollView.postDelayed(() -> scrollView.fullScroll(View.FOCUS_DOWN), 500);
+            resetLap();
+            if(!paused) lapTimer.start();
+        }
+    }
+
+    private void resetLap() {
+        lapTimer = new Timer();
+        lapListener = new TrackerLocationListener(lapTimer);
     }
 }

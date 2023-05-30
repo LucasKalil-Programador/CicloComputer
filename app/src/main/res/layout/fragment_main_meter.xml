@@ -11,23 +11,32 @@
         android:name="br.com.ciclocomputador.MeterFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/lapReportsScroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_meter" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <ScrollView
+        android:id="@+id/lapReportsScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meter">
+        app:layout_constraintTop_toBottomOf="@+id/meter"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lapReports"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            tools:ignore="UselessLeaf" />
+    </ScrollView>
+
+
+
 
     <LinearLayout
         android:id="@+id/buttons"
@@ -38,7 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/lapReportsScroll">
 
         <ImageButton
             android:id="@+id/stopButton"
