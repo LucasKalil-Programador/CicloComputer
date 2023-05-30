@@ -1,4 +1,4 @@
-package br.com.ciclocomputador.Tracker.info;
+package br.com.ciclocomputador.tracker.info;
 
 import android.location.Location;
 

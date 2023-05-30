@@ -15,4 +15,8 @@ public class MeterFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_meter, container, false);
     }
+
+    public void callBack() {
+
+    }
 }

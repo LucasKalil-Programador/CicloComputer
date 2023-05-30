@@ -1,6 +1,6 @@
-package br.com.ciclocomputador.Tracker;
+package br.com.ciclocomputador.tracker;
 
-import br.com.ciclocomputador.Tracker.info.Time;
+import br.com.ciclocomputador.tracker.info.Time;
 
 public class Timer {
     private long startTime;      // Stores the start time in nanoseconds

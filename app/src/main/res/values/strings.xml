@@ -23,6 +23,9 @@
     <string name="max_speed_value_default">0.0 Km/h</string>
     <string name="time_value_default">00:00:00.00</string>
     <string name="distance_value_default">0.0 Km</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="main_meter_stop_label">Stop</string>
+    <string name="main_meter_start_pause_label">StartAndPause</string>
+    <string name="main_meter_lap_label">Lap</string>
+
 </resources>

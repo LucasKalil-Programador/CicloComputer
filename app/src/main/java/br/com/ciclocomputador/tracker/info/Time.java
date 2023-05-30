@@ -1,4 +1,4 @@
-package br.com.ciclocomputador.Tracker.info;
+package br.com.ciclocomputador.tracker.info;
 
 /**
  * Represents a time value in nanoseconds and provides conversions to other units.

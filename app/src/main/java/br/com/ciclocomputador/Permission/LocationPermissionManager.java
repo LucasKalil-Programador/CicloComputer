@@ -69,7 +69,7 @@ public class LocationPermissionManager {
      * @param context The application context.
      * @return True if both location permissions are granted, false otherwise.
      */
-    private static boolean checkLocationPermissions(Context context) {
+    public static boolean checkLocationPermissions(Context context) {
         return ActivityCompat.checkSelfPermission(context, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(context, ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }

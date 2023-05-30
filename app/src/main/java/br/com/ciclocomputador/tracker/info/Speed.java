@@ -1,17 +1,17 @@
-package br.com.ciclocomputador.Tracker.info;
+package br.com.ciclocomputador.tracker.info;
 
 /**
  * Represents a speed value in meters per second and provides conversions to other units.
  */
 public class Speed {
-    private long metersPerSecond;
+    private double metersPerSecond;
 
     /**
      * Constructs a Speed object with the specified meters per second.
      *
      * @param metersPerSecond the speed value in meters per second
      */
-    public Speed(long metersPerSecond) {
+    public Speed(double metersPerSecond) {
         this.metersPerSecond = metersPerSecond;
     }
 
@@ -20,7 +20,7 @@ public class Speed {
      *
      * @return the speed value in meters per second
      */
-    public long getMetersPerSecond() {
+    public double getMetersPerSecond() {
         return metersPerSecond;
     }
 
@@ -59,7 +59,7 @@ public class Speed {
                 break;
             case "km/h":
                 value = getKilometersPerHour();
-                unitLabel = "km/h";
+                unitLabel = "Km/h";
                 break;
             case "mph":
                 value = getMilesPerHour();
@@ -68,8 +68,8 @@ public class Speed {
             default:
                 return "Invalid unit";
         }
-
-        return value + " " + unitLabel;
+        if(Double.isNaN(value)) value = 0;
+        return String.format("%.1f %s", value, unit);
     }
 
     /**

@@ -7,7 +7,7 @@
     tools:context=".MainMeterFragment">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView3"
+        android:id="@+id/meter"
         android:name="br.com.ciclocomputador.MeterFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -22,20 +22,49 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView3">
+        app:layout_constraintTop_toBottomOf="@+id/meter">
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/buttons"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/main_meter_stop_label"
+            android:scaleType="centerInside"
+            android:src="@drawable/stop" />
+
+        <ImageButton
+            android:id="@+id/startAndPauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/main_meter_start_pause_label"
+            android:scaleType="centerInside"
+            android:src="@drawable/play" />
+
+        <ImageButton
+            android:id="@+id/lapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/main_meter_lap_label"
+            android:scaleType="centerInside"
+            android:src="@drawable/stopwatch" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package br.com.ciclocomputador.Tracker.info;
+package br.com.ciclocomputador.tracker.info;
 
 /**
  * Represents a distance value in meters and provides conversions to other units.
@@ -68,8 +68,8 @@ public class Distance {
             default:
                 return "Invalid unit";
         }
-
-        return value + " " + unitLabel;
+        if(Double.isNaN(value)) value = 0;
+        return String.format("%.1f %s", value, unit);
     }
 
     /**
