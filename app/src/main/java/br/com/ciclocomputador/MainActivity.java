@@ -12,6 +12,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LocationPermissionManager.requestLocationPermission(getApplicationContext(), this);
+
+        try {Thread.sleep(1000);} catch (InterruptedException e) { e.printStackTrace(); }
+
+        setTheme(R.style.Theme_CicloComputador);
         setContentView(R.layout.activity_main);
     }
 
