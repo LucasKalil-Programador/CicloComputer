@@ -29,5 +29,6 @@
     <string name="main_meter_stop_label">Stop</string>
     <string name="main_meter_start_pause_label">StartAndPause</string>
     <string name="main_meter_lap_label">Lap</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>
