@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CicloComputador</string>
+
+    <string name="navbar_route_label">Маршрут</string>
+    <string name="navbar_map_label">Карта</string>
+    <string name="navbar_historic_label">История</string>
+    <string name="navbar_config_label">Настройки</string>
+
+    <string name="speed_label">Скорость</string>
+    <string name="avg_speed_label">Ср</string>
+    <string name="max_speed_label">Макс</string>
+    <string name="time_label">Время</string>
+    <string name="distance_label">Расстояние</string>
+    <string name="lap_label">Круг</string>
+
+    <string name="speed_value_model">%02.1f км/ч</string>
+    <string name="avg_speed_value_model">%02.1f км/ч</string>
+    <string name="max_speed_value_model">%02.1f км/ч</string>
+    <string name="time_value_model">%02d:%02d:%02d.%02d</string>
+    <string name="distance_value_model">%02.1f км</string>
+
+    <string name="speed_value_default">0.0 км/ч</string>
+    <string name="avg_speed_value_default">0.0 км/ч</string>
+    <string name="max_speed_value_default">0.0 км/ч</string>
+    <string name="time_value_default">00:00:00.00</string>
+    <string name="distance_value_default">0.0 км</string>
+    <string name="lap_value_default">0</string>
+
+    <string name="main_meter_stop_label">Стоп</string>
+    <string name="main_meter_start_pause_label">Старт/Пауза</string>
+    <string name="main_meter_lap_label">Круг</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="battery_saving_label">экономия заряда батареи</string>
+
+    <string-array name="units_types">
+        <item>Kilometers</item>
+        <item>Miles</item>
+    </string-array>
+
+    <string-array name="language_codes">
+        <item>en</item> <!-- English -->
+        <item>pt</item> <!-- Portuguese -->
+        <item>ja</item> <!-- Japanese -->
+        <item>ru</item> <!-- Russian -->
+    </string-array>
+
+</resources>

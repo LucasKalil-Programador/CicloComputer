@@ -1,5 +1,7 @@
 package br.com.ciclocomputador.tracker.info;
 
+import br.com.ciclocomputador.Configs;
+
 /**
  * Represents a speed value in meters per second and provides conversions to other units.
  */
@@ -79,7 +81,7 @@ public class Speed {
      */
     @Override
     public String toString() {
-        return toString("km/h");
+        return toString(Configs.DefaultUnit);
     }
 }
 

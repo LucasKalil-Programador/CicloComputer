@@ -1,17 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CicloComputador</string>
 
-    <string name="navbar_route_label">Route</string>
-    <string name="navbar_map_label">Map</string>
-    <string name="navbar_historic_label">Historic</string>
-    <string name="navbar_config_label">Config</string>
+    <string name="navbar_route_label">Rota</string>
+    <string name="navbar_map_label">Mapa</string>
+    <string name="navbar_historic_label">Histórico</string>
+    <string name="navbar_config_label">Configurações</string>
 
-    <string name="speed_label">Speed</string>
-    <string name="avg_speed_label">AVG</string>
-    <string name="max_speed_label">Max</string>
-    <string name="time_label">Time</string>
-    <string name="distance_label">Distance</string>
-    <string name="lap_label">Lap</string>
+    <string name="speed_label">Velocidade</string>
+    <string name="avg_speed_label">Média</string>
+    <string name="max_speed_label">Máx</string>
+    <string name="time_label">Tempo</string>
+    <string name="distance_label">Distância</string>
+    <string name="lap_label">Volta</string>
 
     <string name="speed_value_model">%02.1f Km/h</string>
     <string name="avg_speed_value_model">%02.1f Km/h</string>
@@ -26,11 +27,11 @@
     <string name="distance_value_default">0.0 Km</string>
     <string name="lap_value_default">0</string>
 
-    <string name="main_meter_stop_label">Stop</string>
-    <string name="main_meter_start_pause_label">StartAndPause</string>
-    <string name="main_meter_lap_label">Lap</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="battery_saving_label">" battery saving"</string>
+    <string name="main_meter_stop_label">Parar</string>
+    <string name="main_meter_start_pause_label">Iniciar/Pausar</string>
+    <string name="main_meter_lap_label">Volta</string>
+    <string name="title_activity_maps">AtividadeMapas</string>
+    <string name="battery_saving_label">Modo de economia de bateria</string>
 
     <string-array name="units_types">
         <item>Kilometers</item>
