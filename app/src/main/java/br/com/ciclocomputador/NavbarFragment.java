@@ -15,25 +15,20 @@ public class NavbarFragment extends Fragment {
     private ImageButton routeButton;
     private ImageButton mapButton;
 
+    private ImageButton configButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navbar, container, false);
 
         routeButton = view.findViewById(R.id.route_button);
-        routeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRouteClick(v);
-            }
-        });
+        routeButton.setOnClickListener(this::onRouteClick);
 
         mapButton = view.findViewById(R.id.map_button);
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onMapClick(v);
-            }
-        });
+        mapButton.setOnClickListener(this::onMapClick);
+
+        configButton = view.findViewById(R.id.config_button);
+        configButton.setOnClickListener(this::onConfigClick);
 
         return view;
     }
@@ -47,6 +42,12 @@ public class NavbarFragment extends Fragment {
     private void onMapClick(View v) {
         // Navegar para a página do mapa
         Intent intent = new Intent(getActivity(), MapsActivity.class);
+        startActivity(intent);
+    }
+
+    private void onConfigClick(View v) {
+        // Navegar para a página de configuraçoes
+        Intent intent = new Intent(getActivity(), ConfigActivity.class);
         startActivity(intent);
     }
 }

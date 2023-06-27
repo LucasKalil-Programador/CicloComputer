@@ -1,5 +1,7 @@
 package br.com.ciclocomputador.tracker.info;
 
+import br.com.ciclocomputador.Configs;
+
 /**
  * Represents a distance value in meters and provides conversions to other units.
  */
@@ -79,7 +81,7 @@ public class Distance {
      */
     @Override
     public String toString() {
-        return toString("km");
+        return toString(Configs.DefaultUnit);
     }
 }
 

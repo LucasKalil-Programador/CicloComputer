@@ -7,6 +7,7 @@ import android.location.LocationManager;
 
 import java.security.Permission;
 
+import br.com.ciclocomputador.Configs;
 import br.com.ciclocomputador.Permission.LocationPermissionManager;
 import br.com.ciclocomputador.R;
 import br.com.ciclocomputador.tracker.info.TrackerInfo;
@@ -57,7 +58,7 @@ public class Tracker {
                 locationManager.removeUpdates(listener);
                 if(LocationPermissionManager.checkLocationPermissions(context)) {
                     listener.resetLastLocation();
-                    locationManager.requestLocationUpdates(provider,0,0, listener);
+                    locationManager.requestLocationUpdates(provider, Configs.batteryEconomy? 1000:0, Configs.batteryEconomy? 10:0, listener);
                     isListenerRegistered = true;
                 }
             }

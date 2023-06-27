@@ -1,17 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CicloComputador</string>
 
-    <string name="navbar_route_label">Route</string>
-    <string name="navbar_map_label">Map</string>
-    <string name="navbar_historic_label">Historic</string>
-    <string name="navbar_config_label">Config</string>
+    <string name="navbar_route_label">ルート</string>
+    <string name="navbar_map_label">マップ</string>
+    <string name="navbar_historic_label">履歴</string>
+    <string name="navbar_config_label">設定</string>
 
-    <string name="speed_label">Speed</string>
-    <string name="avg_speed_label">AVG</string>
-    <string name="max_speed_label">Max</string>
-    <string name="time_label">Time</string>
-    <string name="distance_label">Distance</string>
-    <string name="lap_label">Lap</string>
+    <string name="speed_label">速度</string>
+    <string name="avg_speed_label">平均</string>
+    <string name="max_speed_label">最大</string>
+    <string name="time_label">時間</string>
+    <string name="distance_label">距離</string>
+    <string name="lap_label">ラップ</string>
 
     <string name="speed_value_model">%02.1f Km/h</string>
     <string name="avg_speed_value_model">%02.1f Km/h</string>
@@ -26,11 +27,11 @@
     <string name="distance_value_default">0.0 Km</string>
     <string name="lap_value_default">0</string>
 
-    <string name="main_meter_stop_label">Stop</string>
-    <string name="main_meter_start_pause_label">StartAndPause</string>
-    <string name="main_meter_lap_label">Lap</string>
+    <string name="main_meter_stop_label">停止</string>
+    <string name="main_meter_start_pause_label">開始/一時停止</string>
+    <string name="main_meter_lap_label">ラップ</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="battery_saving_label">" battery saving"</string>
+    <string name="battery_saving_label">バッテリー節約モード</string>
 
     <string-array name="units_types">
         <item>Kilometers</item>

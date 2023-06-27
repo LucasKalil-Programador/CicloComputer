@@ -27,7 +27,7 @@ public class MainMeterFragment extends Fragment {
     private TextView timeView, speedView, avgSpeedView, maxSpeedView, distanceView;
     private Handler updater = new Handler();
     private Tracker tracker;
-    private static final int updateDelay = 10;
+    private int updateDelay = Configs.batteryEconomy? 250:0;
     private boolean paused = true;
 
     private Timer lapTimer;
