@@ -39,6 +39,9 @@ public class LapReport extends Fragment {
     public void onStart() {
         super.onStart();
         setTexts();
+
+        TrackerData trackerData = TrackerData.getInstance();
+        trackerData.addTrackerInfo(trackerInfo);
     }
 
     @SuppressLint("DefaultLocale")
